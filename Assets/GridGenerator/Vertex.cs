@@ -103,4 +103,11 @@ public class Vertex_hex : Vertex
             vertices.Add(new Vertex_hex(coord));
         }
     }
+
+    public static List<Vertex_hex> GrabRing(int radius, List<Vertex_hex> vertices)
+    {
+        if (radius == 0)
+            return vertices.GetRange(0, 1);
+        return vertices.GetRange(radius * (radius - 1) * 3 + 1, radius * 6);
+    }
 }
